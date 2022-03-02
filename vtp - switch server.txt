@@ -1,0 +1,39 @@
+switch server
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#vtp domain escola
+Changing VTP domain name from NULL to escola
+Switch(config)#vtp password 123
+Setting device VLAN database password to 123
+Switch(config)#
+Switch(config)#vtp version 2
+Switch(config)#vlan 2
+Switch(config-vlan)#name escola
+Switch(config-vlan)#
+Switch(config-vlan)#vlan 3
+Switch(config-vlan)#name secretaria
+Switch(config-vlan)#
+Switch(config-vlan)#vlan 4
+Switch(config-vlan)#name convite
+Switch(config-vlan)#exit
+Switch(config)#
+Switch(config)#
+Switch(config)#int range fa0/23 - 24
+Switch(config-if-range)#switchport mode trunk
+Switch(config-if-range)#exit
+Switch(config)#
+Switch(config)#
+Switch(config)#int range fa0/1 - 9
+Switch(config-if-range)#switchpor mode acc
+Switch(config-if-range)#switchport voice vlan 1
+Switch(config-if-range)#
+Switch(config-if-range)#end
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#wr
+Building configuration...
+[OK]
+Switch#
